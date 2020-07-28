@@ -18,19 +18,33 @@ public class Attack : NetworkBehaviour
 
     void Update(){
         if (this.isLocalPlayer && Input.GetKeyDown(KeyCode.Space)){
-            this.CmdShoot();
+            this.Fire();
         }
     }
 
-    [Command]
-    void CmdShoot(){
+    void Fire()
+    {
         Vector3 moveDirection;
         moveDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         moveDirection.z = 0;
         moveDirection.Normalize();
+        CmdShoot(transform.position, moveDirection ,transform.rotation.eulerAngles);
+    }
+
+    [Command]
+    void CmdShoot(Vector2 myPosition, Vector2 myDir, Vector3 rotation)
+    {
+      
         //transform.position = (transform.position * bulletSpeed * Time.deltaTime);
-        GameObject AttackProjectile = Instantiate(AttackProjectilePrefab, transform.position + transform.forward*2, transform.rotation);
-        AttackProjectile.GetComponent<Rigidbody2D>().velocity = (moveDirection * bulletSpeed);
+        RpcFire(myPosition, myDir, rotation);
+    }
+
+    [ClientRpc]
+    void RpcFire(Vector2 myPosition, Vector2 myDir, Vector3 rotation)
+    {
+        GameObject AttackProjectile = Instantiate(AttackProjectilePrefab, myPosition, Quaternion.Euler(rotation)) as GameObject;
+        AttackProjectile.GetComponent<Bullet>().owner = transform;
+        AttackProjectile.GetComponent<Rigidbody2D>().velocity = (myDir * bulletSpeed);
         NetworkServer.Spawn(AttackProjectile);
         Destroy(AttackProjectile, 2.0f);
     }

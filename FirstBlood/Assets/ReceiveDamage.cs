@@ -28,7 +28,7 @@ public class ReceiveDamage : NetworkBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == this.enemyTag)
+        if (collider.CompareTag("Attack") && collider.GetComponent<Bullet>().owner != transform)
         {
             this.TakeDamage(1);
             Destroy(collider.gameObject);

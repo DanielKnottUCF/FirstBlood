@@ -1327,7 +1327,7 @@ namespace Mirror
             GameObject player = startPos != null
                 ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
                 : Instantiate(playerPrefab);
-
+            
             NetworkServer.AddPlayerForConnection(conn, player);
         }
 

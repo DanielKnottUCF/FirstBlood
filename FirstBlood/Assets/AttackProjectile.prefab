@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5206438404563197052}
   - component: {fileID: 8356612472707491355}
   - component: {fileID: -1788075998830324185}
-  - component: {fileID: -2788572004145007932}
+  - component: {fileID: -5696772260533318700}
   m_Layer: 0
   m_Name: AttackProjectile
   m_TagString: Attack
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2788572004145007932
+--- !u!114 &-5696772260533318700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,11 +166,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5641133711232042098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee68233919c8b043878b4d3eda22928, type: 3}
+  m_Script: {fileID: 11500000, guid: 44fc9d672917b6ed880dede791529e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  maxHealth: 1
-  enemyTag: 
-  destroyOnDeath: 1
