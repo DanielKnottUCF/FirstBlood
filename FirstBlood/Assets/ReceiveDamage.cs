@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -28,8 +28,10 @@ public class ReceiveDamage : NetworkBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        //here we add a check to see if we own the bullet that collided with us or not.
         if (collider.CompareTag("Attack") && collider.GetComponent<Bullet>().owner != transform)
         {
+            
             this.TakeDamage(1);
             Destroy(collider.gameObject);
         }
