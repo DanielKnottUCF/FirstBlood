@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5312595211848301715}
   - component: {fileID: -5073019013813403667}
   - component: {fileID: 8105559483272862161}
-  - component: {fileID: 8322850750991295338}
   - component: {fileID: 7581819176323716906}
   - component: {fileID: 5735624961328928407}
   - component: {fileID: 1482581154455054383}
   - component: {fileID: 3761458768933022129}
+  - component: {fileID: 953598579395984174}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Ship
@@ -91,34 +91,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &8322850750991295338
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7030856201408458551}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05563277}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.88873446}
-  m_EdgeRadius: 0
 --- !u!212 &7581819176323716906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -158,8 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8893559171113943221, guid: 5d19f014a8e1dab489f916622613b2ef,
-    type: 3}
+  m_Sprite: {fileID: 570759830991093282, guid: 2a02810b74f4347439d023fde7cd44f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -218,4 +191,20 @@ MonoBehaviour:
   syncInterval: 0.1
   maxHealth: 10
   enemyTag: 
-  destroyOnDeath: 1
+  destroyOnDeath: 0
+--- !u!58 &953598579395984174
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030856201408458551}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.11998361}
+  serializedVersion: 2
+  m_Radius: 0.3822803

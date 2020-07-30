@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-
+//Lots of changes here. Why and what did you change?
 public class Attack : NetworkBehaviour
 {
     [SerializeField]
@@ -12,10 +12,8 @@ public class Attack : NetworkBehaviour
     private float bulletSpeed;
 
     void Awake(){
-        //GetComponent<Rigidbody2D>().AddForce(Vector3.forward * bulletSpeed);
-        //Destroy(gameObject, 1.0f);
     }
-
+    
     void Update(){
         if (this.isLocalPlayer && Input.GetKeyDown(KeyCode.Space)){
             this.Fire();
@@ -35,10 +33,10 @@ public class Attack : NetworkBehaviour
     void CmdShoot(Vector2 myPosition, Vector2 myDir, Vector3 rotation)
     {
       
-        //transform.position = (transform.position * bulletSpeed * Time.deltaTime);
+        
         RpcFire(myPosition, myDir, rotation);
     }
-
+    
     [ClientRpc]
     void RpcFire(Vector2 myPosition, Vector2 myDir, Vector3 rotation)
     {
@@ -46,6 +44,6 @@ public class Attack : NetworkBehaviour
         AttackProjectile.GetComponent<Bullet>().owner = transform;
         AttackProjectile.GetComponent<Rigidbody2D>().velocity = (myDir * bulletSpeed);
         NetworkServer.Spawn(AttackProjectile);
-        Destroy(AttackProjectile, 2.0f);
+        Destroy(AttackProjectile, 1.0f);
     }
 }
